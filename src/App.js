@@ -12,7 +12,7 @@ import GiftCertificate from "./Component/GiftCertificate";
 import ProductInfo from "./Component/ProductInfo";
 import Cart from "./Component/Cart";
 import Checkout from "./Component/Checkout";
-import { Navigate } from "react-router-dom";
+
 // Admin
 import Dashboard from "./Admin/Dashboard";
 import AddProduct from "./Admin/AddProduct";
