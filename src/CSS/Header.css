@@ -1,0 +1,33 @@
+ @media (max-width: 576px) {
+          .header-main-box {
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+          }
+          .header-left-text {
+            font-size: 10px !important;
+            white-space: nowrap;
+          }
+          .header-logo-img {
+            height: 30px !important;
+          }
+          .header-right-icons {
+            gap: 6px !important;
+          }
+          .header-icon {
+            font-size: 13px !important;
+            margin: 0 !important;
+          }
+          .offer-bar-text {
+            font-size: 8px !important;
+            padding: 3px 0 !important;
+          }
+          .nav-links-row {
+            font-size: 10px !important;
+            gap: 12px !important;
+            padding: 6px 0 !important;
+            white-space: nowrap;
+            overflow-x: auto;
+          }
+        }

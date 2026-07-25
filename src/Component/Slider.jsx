@@ -59,8 +59,3 @@ const HeroSlider = () => {
 };
 
 export default HeroSlider;
-
-
-// import womanImg from "../assets/woman.jpg";
-// import manImg from "../assets/man.jpg";
-// import summerImg from "../assets/img.jpg";

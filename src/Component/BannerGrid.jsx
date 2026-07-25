@@ -8,7 +8,6 @@ import leaves from "../assets/img.jpg";
 export default function BannerGrid() {
   return (
     <div className="wrap">
-      {/* Top Row */}
       <div className="top d-flex align-items-center ">
         <div className="card woman ">
           <h2>
@@ -24,7 +23,6 @@ export default function BannerGrid() {
         </div>
       </div>
 
-      {/* Bottom Row */}
       <div className="bottom">
         <div className="card summer" style={{ backgroundImage: `url(${leaves})` }}>
           <div className="center">
@@ -40,11 +38,9 @@ export default function BannerGrid() {
           <img src={man} alt="" />
         </div>
 
-        <div className="card style" style={{border:"none"}}>
-          <h3 style={{fontStyle:"italic",fontSize:"40px",width:"190px",textAlign:"center"}}>
-            The Main Style
-          </h3>
-          <button style={{border:"none",width:"180px",fontSize:"18px"}}>VIEW COLLECTION</button>
+        <div className="card style" style={{ border: "none" }}>
+          <h3 style={{ fontStyle: "italic", fontSize: "40px", width: "190px", textAlign: "center" }}>The Main Style</h3>
+          <button style={{ border: "none", width: "180px", fontSize: "18px" }}>VIEW COLLECTION</button>
         </div>
       </div>
     </div>

@@ -4,7 +4,6 @@ import axios from "axios";
 export default function Collection() {
   const [products, setProducts] = useState([]);
 
-  // 🔹 Fetch Products
   const fetchProducts = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/products");
@@ -18,11 +17,10 @@ export default function Collection() {
     fetchProducts();
   }, []);
 
-  // 🔹 Delete Product
   const deleteProduct = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/products/${id}`);
-      fetchProducts(); // refresh after delete
+      fetchProducts();
     } catch (error) {
       console.log(error);
     }
@@ -30,17 +28,12 @@ export default function Collection() {
 
   return (
     <div style={{ padding: "40px" }}>
-      {/* <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
-        Our Collection
-      </h2> */}
-
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
           gap: "20px",
-        }}
-      >
+        }}>
         {products.map((item) => (
           <div
             key={item._id}
@@ -49,8 +42,7 @@ export default function Collection() {
               padding: "15px",
               borderRadius: "8px",
               textAlign: "center",
-            }}
-          >
+            }}>
             <img
               src={item.image}
               alt={item.title}
@@ -76,8 +68,7 @@ export default function Collection() {
                 border: "none",
                 cursor: "pointer",
                 borderRadius: "4px",
-              }}
-            >
+              }}>
               Delete
             </button>
           </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { FaUser, FaGift, FaSearch, FaShoppingCart } from "react-icons/fa";
+import { FaGift, FaSearch, FaShoppingCart, FaUser, FaHeart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import "../CSS/Header.css";
 
 const Header = () => {
   const [user, setUser] = useState(null);
@@ -10,7 +11,11 @@ const Header = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (err) {
+        console.error("User parse error:", err);
+      }
     }
   }, []);
 
@@ -21,42 +26,45 @@ const Header = () => {
     navigate("/login");
   };
 
+  const getUserDisplayName = () => {
+    if (!user) return "";
+    let rawName = user.firstName || user.name || (user.email ? user.email.split("@")[0] : "User");
+    let cleanName = rawName.replace(/[0-9]/g, "").trim();
+    if (cleanName.length > 0) {
+      return cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
+    }
+    return "User";
+  };
+
   return (
     <>
-      {/* TOP BLACK STRIP */}
-      <div style={{ height: "22px", background: "black" }} className="d-none d-sm-block"></div>
+      <div style={{ height: "22px", background: "black" }}></div>
 
-      {/* OFFER BAR */}
-      <div className="d-none d-sm-block bg-black text-white">
-        <div className="container d-flex text-center small py-2">
+      <div className="bg-black text-white">
+        <div className="container d-flex text-center small py-2 offer-bar-text">
           <div className="flex-fill border-end border-secondary">FREE SHIPPING ON ALL ORDERS</div>
           <div className="flex-fill border-end border-secondary">DISCOUNT 50% FOR ORDERS OVER $99</div>
           <div className="flex-fill">CALL US 123-456-789</div>
         </div>
       </div>
 
-      {/* MAIN HEADER */}
-      <div className="border-bottom py-3 px-4 d-flex justify-content-between align-items-center">
-        {/* LEFT SIDE */}
-        <div className="d-none d-sm-block">
+      <div className="border-bottom py-3 px-2 px-md-4 d-flex justify-content-between align-items-center header-main-box">
+        <div className="header-left-text">
           {user ? (
             <>
-              {/* Same styling as Sign in */}
-              <span className="text-dark text-decoration-none">{user.firstName}</span>
-
-              <span className="mx-2">|</span>
-
-              <span onClick={handleLogout} style={{ cursor: "pointer" }} className="text-dark text-decoration-none">
+              <span className="fw-bold text-dark me-1">Hi, {getUserDisplayName()}</span>
+              <span className="mx-1">|</span>
+              <span onClick={handleLogout} style={{ cursor: "pointer" }} className="text-dark fw-semibold">
                 Logout
               </span>
             </>
           ) : (
             <>
               <Link to="/login" className="text-dark text-decoration-none">
-                <FaUser className="me-1" /> Sign in
+                <FaUser className="me-1 header-icon" /> Sign in
               </Link>
 
-              <span className="mx-2">|</span>
+              <span className="mx-1">|</span>
 
               <Link to="/register" className="text-dark text-decoration-none">
                 Register
@@ -65,65 +73,75 @@ const Header = () => {
           )}
         </div>
 
-        {/* CENTER LOGO */}
-        <div>
-          <img src="https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/178x70/logo-black_1492511941__55514.original.png" alt="logo" height="60" />
+        <div className="position-absolute start-50 translate-middle-x">
+          <Link to="/">
+            <img
+              src="https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/178x70/logo-black_1492511941__55514.original.png"
+              alt="logo"
+              style={{
+                height: "clamp(25px, 4vw, 50px)",
+                maxWidth: "100%",
+                objectFit: "contain",
+              }}
+            />
+          </Link>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="d-flex align-items-center">
-          <Link to="/gift" className="text-decoration-none text-dark me-3 ms-5">
-            <FaGift className="me-1" /> Gift Certificates
+        <div className="d-flex align-items-center gap-2 gap-md-3">
+          <Link to="/gift" className="text-dark text-decoration-none d-flex align-items-center header-action-icon" title="Gift">
+            <FaGift />
           </Link>
 
-          {/* Search Wrapper */}
-          <div className="d-flex align-items-center me-3">
-            {showSearch && <input type="text" placeholder="Search..." className="form-control me-2 search-input" />}
-
+          <div className="d-flex align-items-center header-action-icon">
+            {showSearch && <input type="text" placeholder="Search..." className="form-control me-1 me-md-2 search-input" style={{ width: "80px", fontSize: "11px" }} />}
             <FaSearch style={{ cursor: "pointer" }} onClick={() => setShowSearch(!showSearch)} />
           </div>
 
-          <FaShoppingCart style={{ cursor: "pointer" }} onClick={() => navigate("/cart")} />
+          <div className="d-flex align-items-center header-action-icon" style={{ cursor: "pointer" }} onClick={() => navigate("/wishlist")} title="Wishlist">
+            <FaHeart style={{ color: "#dc3545" }} />
+          </div>
+
+          <div className="d-flex align-items-center header-action-icon" style={{ cursor: "pointer" }} onClick={() => navigate("/cart")} title="Cart">
+            <FaShoppingCart />
+          </div>
+
+          {user?.role === "admin" && (
+            <Link to="/admin/dashboard" className="text-dark text-decoration-none d-flex align-items-center header-action-icon" title="Admin">
+              <FaUser />
+            </Link>
+          )}
         </div>
       </div>
 
-      {/* NAVBAR */}
-      <nav className="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+      <nav className="bg-white border-bottom">
         <div className="container">
-          {/* Toggle Button (Mobile only) */}
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse justify-content-center" id="mainNavbar">
-            <ul className="navbar-nav gap-sm-4 fw-semibold text-center w-100 justify-content-center">
-              <li className="nav-item py-2">SHOP ALL</li>
-              <li className="nav-item py-2">BATH</li>
-              <li className="nav-item py-2">GARDEN</li>
-              <li className="nav-item py-2">BLOG</li>
-              <li className="nav-item py-2">CONTACT US</li>
-            </ul>
-            {/* User Info for Mobile */}
-            <div className="d-sm-none text-center py-3 border-bottom">
-              {user ? (
-                <>
-                  <div className="fw-semibold">{user.firstName}</div>
-                  <div onClick={handleLogout} style={{ cursor: "pointer" }} className="text-danger small">
-                    Logout
-                  </div>
-                </>
-              ) : (
-                <>
-                  <Link to="/login" className="d-block text-dark py-1">
-                    Sign in
-                  </Link>
-                  <Link to="/register" className="d-block text-dark py-1">
-                    Register
-                  </Link>
-                </>
-              )}
-            </div>
-          </div>
+          <ul className="nav justify-content-center gap-sm-4 fw-semibold text-center w-100 nav-links-row m-0 list-unstyled d-flex py-2">
+            <li className="nav-item">
+              <Link to="/" className="nav-link p-0 text-dark">
+                SHOP ALL
+              </Link>
+            </li>
+            <li className="nav-item">
+              <span className="nav-link p-0 text-dark" style={{ cursor: "pointer" }}>
+                HOME
+              </span>
+            </li>
+            <li className="nav-item">
+              <span className="nav-link p-0 text-dark" style={{ cursor: "pointer" }}>
+                ABOUT
+              </span>
+            </li>
+            <li className="nav-item">
+              <span className="nav-link p-0 text-dark" style={{ cursor: "pointer" }}>
+                BLOG
+              </span>
+            </li>
+            <li className="nav-item">
+              <span className="nav-link p-0 text-dark" style={{ cursor: "pointer" }}>
+                CONTACT US
+              </span>
+            </li>
+          </ul>
         </div>
       </nav>
     </>

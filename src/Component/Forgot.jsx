@@ -8,7 +8,7 @@ const Forgot = () => {
   const [newPassword, setNewPassword] = useState("");
   const [verified, setVerified] = useState(false);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleVerifyEmail = async (e) => {
     e.preventDefault();
@@ -25,42 +25,29 @@ const Forgot = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `http://localhost:7800/reset-password/${userId}`,
-        { newpassword: newPassword }
-      );
+      const res = await axios.post(`http://localhost:7800/reset-password/${userId}`, { newpassword: newPassword });
       alert(res.data.message);
 
-      // reset state
       setEmail("");
       setNewPassword("");
       setVerified(false);
     } catch (err) {
       alert(err.response?.data?.message || "Error");
     }
-     navigate("/login");
+    navigate("/login");
   };
 
   return (
     <div style={{ width: "400px", margin: "auto", marginTop: "50px" }}>
       <h2>Forgot Password</h2>
 
-      {/* EMAIL VERIFY */}
       <form onSubmit={handleVerifyEmail}>
-        <input
-          type="email"
-          placeholder="Enter registered email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
-        />
+        <input type="email" placeholder="Enter registered email" value={email} onChange={(e) => setEmail(e.target.value)} required style={{ width: "100%", padding: "10px", marginBottom: "15px" }} />
         <button type="submit" style={{ width: "100%", padding: "10px" }}>
           Verify Email
         </button>
       </form>
 
-      {/* RESET PASSWORD */}
       {verified && (
         <>
           <h3 style={{ marginTop: "30px" }}>Reset Password</h3>
