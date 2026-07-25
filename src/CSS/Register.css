@@ -1,0 +1,50 @@
+.register-container {
+  width: 80%;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #999;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0 40px;
+}
+
+/* .register-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px 40px;
+} */
+
+.register-grid label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.register-grid input,
+.register-grid select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.create-btn {
+  display: block;
+  margin: 50px auto 0;
+  padding: 12px 40px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-btn:hover {
+  background: #333;
+}

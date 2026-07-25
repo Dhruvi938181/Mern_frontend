@@ -1,0 +1,50 @@
+.quantity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;     /* IMPORTANT */
+}
+
+.quantity-box button {
+  width: 40px;
+  height: 40px;
+}
+
+.quantity-box span {
+  min-width: 20px;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+
+  /* 🔹 Quantity buttons small & square */
+  .quantity-box button {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 🔹 Quantity number thoda compact */
+  .quantity-box span {
+    font-size: 13px;
+    margin: 0 6px;
+  }
+
+  /* 🔹 Product name fix */
+  .cart-item h6 {
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    word-break: break-word;
+  }
+  .cart-total{
+    width: 15px;
+    font-size: 10px;
+  }
+
+}

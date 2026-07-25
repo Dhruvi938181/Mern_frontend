@@ -1,0 +1,83 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Short Froke",
+      "price": 21,
+      "oldPrice": 30,
+      "badge": "NEW",
+      "colors": ["#ddd", "#000", "#f4c2c2"],
+      "rating": 4,
+      "image": "https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/550x705/products/111/402/1a__63494.1491318859.jpg?c=2"
+    },
+    {
+      "id": 2,
+      "name": "Green Froke",
+      "price": 34.45,
+      "oldPrice": 50,
+      "badge": "HOT",
+      "colors": ["#556b2f", "#000"],
+      "rating": 5,
+      "image": "https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/550x705/products/107/405/2a__42999.1491318895.jpg?c=2"
+    },
+    {
+      
+      "id": 3,
+      "name": "Sleeveless Top",
+      "price": 40,
+      "oldPrice": 50,
+      "colors": ["#86767C", "#000"],
+      "rating": 5,
+      "image":"https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/550x705/products/104/407/3a__86385.1491318922.jpg?c=2"
+    },
+    {
+
+       "id": 4,
+      "name": "T-shirt",
+      "price": 200,
+      "oldPrice": 250,
+      "badge": "NEW",
+      "colors": ["#86767C", "#000"],
+      "rating": 4,
+      "image":"https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/1280x1280/products/103/409/5a__89757.1491318956.jpg?c=2"
+    },
+    {
+      "id": 5,
+      "name": "White gown",
+      "price": 119.95,
+      "oldPrice": 200,
+      "colors": ["#86767C", "#000"],
+      "rating": 5,
+      "image":"https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/1280x1280/products/97/413/7a__61764.1491319021.jpg?c=2"
+    },
+    {
+       "id": 6,
+      "name": "Green gown",
+      "price": 135,
+      "oldPrice": 210,
+      "badge": "NEW",
+      "colors": ["#86767C", "#000"],
+      "rating": 4,
+      "image":"https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/550x705/products/93/416/10a__15668.1491319083.jpg?c=2"
+    },
+    {
+      "id": 7,
+      "name": "Long top",
+      "price": 124,
+      "oldPrice": 180,
+      "colors": ["#86767C", "#000"],
+      "rating": 3,
+      "image":"https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/550x705/products/88/418/12a__59917.1491319221.jpg?c=2"
+    },
+    {
+      "id": 8,
+      "name": "Blue T-shirt",
+      "price": 200,
+      "oldPrice": 230,
+      "colors": ["#86767C", "#000"],
+      "rating": 5,
+      "badge": "HOT",
+      "image":"https://cdn11.bigcommerce.com/s-apwcvcac2o/images/stencil/550x705/products/86/420/13a__06089.1491319260.jpg?c=2"
+    }
+  ]
+}

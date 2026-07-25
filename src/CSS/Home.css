@@ -1,0 +1,218 @@
+.section-title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dotted #aaa;   /* dotted line */
+}
+
+.section-title span {
+  padding: 0 20px;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+/* Image Zoom */
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+/* Icons */
+.product-icons {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: 0.3s ease;
+}
+
+.product-icons i {
+  background: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Quick View Button */
+.quick-view-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  padding: 8px 20px;
+  border: 1px solid black;
+  background: white;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+/* 🔥 Hover Effect */
+.product-card:hover .product-icons {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.product-card:hover .quick-view-btn {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+
+/* modal */
+/* Overlay */
+.fork-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Main Modal */
+.fork-modal {
+  width: 90%;
+  height: 90%;
+  background: #f8f8f8;
+  padding: 40px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Close */
+.fork-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Layout */
+.fork-container {
+  display: flex;
+  gap: 60px;
+}
+
+/* Left */
+.fork-left img {
+  width: 450px;
+  max-width: 100%;
+}
+
+/* Right */
+.fork-right {
+  flex: 1;
+}
+
+.fork-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.fork-brand {
+  color: gray;
+  margin-top: 5px;
+}
+
+.fork-price {
+  font-size: 20px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.fork-rating {
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.fork-sku {
+  margin-bottom: 20px;
+}
+
+.fork-description {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+/* Quantity */
+.fork-quantity label {
+  font-weight: 600;
+}
+
+.qty-box {
+  display: flex;
+  width: 150px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+.qty-box button {
+  width: 30px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+
+.qty-box input {
+  width: 60px;
+  text-align: center;
+  border: none;
+}
+
+/* Buttons */
+.fork-buttons {
+  margin-top: 25px;
+}
+
+.fork-cart {
+  background: black;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.fork-wish {
+  background: white;
+  border: 1px solid black;
+  padding: 12px 25px;
+  cursor: pointer;
+}
