@@ -18,7 +18,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:7800/login", form);
+      const res = await axios.post("https://mern-backend-j99c.onrender.com/login", form);
 
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);

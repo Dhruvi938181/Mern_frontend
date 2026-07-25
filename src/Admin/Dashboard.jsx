@@ -34,10 +34,10 @@ const Dashboard = () => {
       try {
         let productData = [];
         try {
-          const res = await axios.get("http://localhost:7800/products");
+          const res = await axios.get("https://mern-backend-j99c.onrender.com/products");
           productData = res.data;
         } catch {
-          const res = await axios.get("http://localhost:7800/api/products");
+          const res = await axios.get("https://mern-backend-j99c.onrender.com/api/products");
           productData = res.data;
         }
 
@@ -47,7 +47,7 @@ const Dashboard = () => {
           setTotalProducts(productData.products.length);
         }
 
-        const userRes = await axios.get("http://localhost:7800/admin/users", {
+        const userRes = await axios.get("https://mern-backend-j99c.onrender.com/admin/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:7800/api/products")
+      .get("https://mern-backend-j99c.onrender.com/api/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
 
@@ -39,7 +39,7 @@ const Home = () => {
     }
 
     localStorage.setItem("wishlist", JSON.stringify(savedWishlist));
-    setWishlistIds(savedWishlist.map((item) => item._id)); // UI State Update
+    setWishlistIds(savedWishlist.map((item) => item._id)); 
   };
 
   const handleAddToCart = () => {

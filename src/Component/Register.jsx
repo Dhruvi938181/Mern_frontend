@@ -40,7 +40,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:7800/signup", form);
+      const response = await axios.post("https://mern-backend-j99c.onrender.com/signup", form);
 
       alert(response.data?.message || "Signup successful!");
       navigate("/login");

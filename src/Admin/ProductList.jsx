@@ -13,7 +13,7 @@ const ProductList = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:7800/api/products");
+      const res = await axios.get("https://mern-backend-j99c.onrender.com/api/products");
       if (Array.isArray(res.data)) {
         setProducts(res.data);
       } else if (res.data.products && Array.isArray(res.data.products)) {
@@ -34,7 +34,7 @@ const ProductList = () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       setDeletingId(id);
       try {
-        await axios.delete(`http://localhost:7800/products/${id}`);
+        await axios.delete(`https://mern-backend-j99c.onrender.com/products/${id}`);
         setProducts(products.filter((item) => item._id !== id));
       } catch (err) {
         console.error(err);

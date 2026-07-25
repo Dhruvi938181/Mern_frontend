@@ -14,7 +14,7 @@ const ProductInfo = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7800/api/products`)
+      .get(`https://mern-backend-j99c.onrender.com/api/products`)
       .then((res) => {
         const single = res.data.find((p) => p._id === id);
         setProduct(single);

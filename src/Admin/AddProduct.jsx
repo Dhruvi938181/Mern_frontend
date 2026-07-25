@@ -34,7 +34,7 @@ const AddProduct = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:7800/products", formattedProduct);
+      const res = await axios.post("https://mern-backend-j99c.onrender.com/products", formattedProduct);
 
       if (res.data.success || res.status === 200 || res.status === 201) {
         alert("Product Added Successfully! 🎉");

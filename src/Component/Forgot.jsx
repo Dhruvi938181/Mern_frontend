@@ -13,7 +13,7 @@ const Forgot = () => {
   const handleVerifyEmail = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:7800/forgot", { email });
+      const res = await axios.post("https://mern-backend-j99c.onrender.com/forgot", { email });
       alert(res.data.message);
       setUserId(res.data.userId);
       setVerified(true);
@@ -25,7 +25,7 @@ const Forgot = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`http://localhost:7800/reset-password/${userId}`, { newpassword: newPassword });
+      const res = await axios.post(`https://mern-backend-j99c.onrender.com/reset-password/${userId}`, { newpassword: newPassword });
       alert(res.data.message);
 
       setEmail("");

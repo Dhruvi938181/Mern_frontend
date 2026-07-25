@@ -6,7 +6,7 @@ export default function Collection() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://mern-backend-j99c.onrender.com/api/products");
       setProducts(res.data);
     } catch (error) {
       console.log(error);
@@ -19,7 +19,7 @@ export default function Collection() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://mern-backend-j99c.onrender.com/api/products/${id}`);
       fetchProducts();
     } catch (error) {
       console.log(error);
